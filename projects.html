@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects — Juri Westendorf</title>
+  <title>Projects | Juri Westendorf</title>
   <meta name="description" content="Projects by Juri Westendorf, computational biology PhD researcher.">
   <link rel="stylesheet" href="css/site.css">
 </head>
@@ -26,16 +26,118 @@
 
   <main id="main" class="container">
     <h1>Projects</h1>
+    <p class="lede">
+      My PhD is on translation: how the sequence of an mRNA sets how much
+      protein a cell makes from it. The first three projects below make up that
+      work. The others are collaborations, group projects and tools I build
+      alongside it.
+    </p>
 
     <article class="project">
-      <h2>proTE <span class="status">Active</span></h2>
+      <h2>seq2te <span class="status">Active</span></h2>
       <p>
-        proTE is a tool for understanding translation from genetic sequence. It
-        integrates matched RNA-seq and Ribo-seq measurements, biological
-        foundation-model representations of sequence, and interpretable
-        sequence features, to connect the information carried in a gene with the
-        protein it produces.
+        seq2te predicts a gene&rsquo;s translation efficiency from its mRNA
+        sequence, in a named cell type or condition, and shows which parts of
+        the sequence carry the signal. It is the methods and benchmark paper of
+        my PhD, and it grew out of my earlier proTE work.
       </p>
+      <p>
+        The model combines information measured at different resolutions:
+        ribosome footprint coverage along the transcript, translation efficiency
+        per gene and per isoform, RNA structure, RNA-binding protein motifs and
+        features of the encoded protein. The question is whether this
+        combination beats any single sequence foundation model. Transfer to cell
+        types and conditions the model has not seen is a main result, because a
+        prediction is only useful in the tissue where the transcript is read. We
+        also interpret the model, by tying predictions to known sequence
+        features and by looking for transcripts that sit apart in its learned
+        representation.
+      </p>
+    </article>
+
+    <article class="project">
+      <h2>genTE <span class="status">Active</span></h2>
+      <p>
+        genTE takes on the design question that follows. Given a protein, which
+        mRNA will translate it with a chosen profile in a chosen cell state? The
+        protein stays fixed and only the message changes.
+      </p>
+      <p>
+        Designs are judged on how well the model ranks different mRNAs for the
+        same protein, since that is the choice a designer faces. Every
+        evaluation carries controls that separate translation from mRNA
+        abundance and from transcript length, and each design is scored by a
+        model from a different family than the one that proposed it. The aim is
+        constructs good enough that a wet lab will test them.
+      </p>
+    </article>
+
+    <article class="project">
+      <h2>TE labels <span class="status">Active</span></h2>
+      <p>
+        Translation efficiency labels built from public studies with matched
+        Ribo-seq and RNA-seq. They are built at every resolution the data
+        supports: per gene, per transcript isoform where isoforms can be told
+        apart, and as changes between conditions. Each level passes its own
+        quality checks before use. These labels are the training and evaluation
+        targets for seq2te and genTE.
+      </p>
+    </article>
+
+    <article class="project">
+      <h2>riboseq-agent <span class="status">Contributor</span></h2>
+      <p>
+        Owen Rackham&rsquo;s project, which finds, annotates and processes public
+        ribosome profiling studies, from a research question through to
+        quality-checked footprint tracks. I contribute to the Nextflow
+        processing and to turning aligned reads into coverage tracks for the
+        genome browser.
+      </p>
+    </article>
+
+    <article class="project">
+      <h2>kitsune <span class="status">Group project</span></h2>
+      <p>
+        A UoSDDNB group project looking for unannotated small open reading
+        frames, which may encode microproteins, by fine-tuning nucleotide
+        sequence models to predict Ribo-seq and RNA-seq coverage.
+      </p>
+    </article>
+
+    <article class="project">
+      <h2>locus <span class="status">Group project</span></h2>
+      <p>
+        UoSDDNB group work. locus finds public omics datasets from a
+        plain-English question, then reads each dataset&rsquo;s own sample
+        records to count cases and controls and check whether it fits. For bulk
+        RNA-seq studies it runs a first differential expression analysis on a
+        laptop.
+      </p>
+      <ul class="project-links">
+        <li><a href="https://github.com/UoSDDNB/omics-agent">Repository</a></li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <h2>Domain experts <span class="status">Active</span></h2>
+      <p>
+        A framework that distils a collection of scientific papers into a panel
+        of AI assistants, one per field. Each answers only from its own sources
+        and cites a passage for every claim, and its knowledge is plain text
+        that can be read and corrected. I use them to test ideas against the
+        literature in translation, RNA biology, statistics and machine learning.
+      </p>
+    </article>
+
+    <article class="project">
+      <h2>Playtime <span class="status">On hold</span></h2>
+      <p>
+        Small browser games that teach biology through play, such as an RNA
+        chain game and a neutrophil chase. Paused for a few months.
+      </p>
+      <ul class="project-links">
+        <li><a href="https://github.com/jurilw/Playtime">Repository</a></li>
+      </ul>
     </article>
   </main>
 

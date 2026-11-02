@@ -12,6 +12,7 @@ via GitHub Pages from the `main` branch of this repository.
 ├── cv.html           # CV
 ├── css/
 │   └── site.css      # Shared styling
+├── media/            # Web-sized video and poster (keep each file well under 100 MB)
 └── README.md
 ```
 
